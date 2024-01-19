@@ -74,8 +74,8 @@ top_combinations = get_top_n_cheapest_combinations(result, player_prices)
 print("Top 7 Cheapest Combinations:")
 for combination, total_price in top_combinations:
     print(f"Combination: {combination}, Total Price: {total_price}")
-    sub = 0
-    for i in combination:
-        if i > sum(combination)/11:
-            sub += (i-sum(combination)/11)
-    print(sum(combination)/11+sub/11)
+    # sub = 0
+    # for i in combination:
+    #     if i > sum(combination)/11:
+    #         sub += (i-sum(combination)/11)
+    # print(sum(combination)/11+sub/11)
