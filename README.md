@@ -7,3 +7,4 @@ Reference:
 1. https://futcd.com/sbc.html
 2. https://www.reddit.com/r/EASportsFC/comments/5g3unf/how_to_work_out_overall_team_rating_broken_down/
 3. https://chat.openai.com/
+4. https://www.futbin.com/stc/cheapest
