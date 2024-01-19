@@ -1,8 +1,11 @@
 import tkinter as tk
 from itertools import combinations_with_replacement
+import webbrowser
 
 # Define player_prices as a global variable
 player_prices = {}
+def open_webpage():
+    webbrowser.open('https://www.futbin.com/stc/cheapest')
 
 def generate_team_combinations(players, target_rating):
     if players[0] == '':
@@ -89,14 +92,14 @@ def on_calculate_button_click():
 # Tkinter GUI setup
 root = tk.Tk()
 root.title("Cheapest SBC Combinations Calculator")
-root.geometry("800x500")
+root.geometry("620x450")
 
 # Input labels and entry widgets
 label_players = tk.Label(root, text="Enter players' ratings (comma-separated):")
-entry_players = tk.Entry(root)
+entry_players = tk.Entry(root,width=28)
 
 label_target_rating = tk.Label(root, text="Enter target team rating:")
-entry_target_rating = tk.Entry(root)
+entry_target_rating = tk.Entry(root,width=10)
 
 # Input labels and entry widgets for rating prices
 label_prices = tk.Label(root, text="Enter prices for each rating:")
@@ -132,7 +135,7 @@ label_players.place(x=10, y=10, anchor="w")
 entry_players.place(x=240, y=10, anchor="w")
 
 label_target_rating.place(x=400, y=10, anchor="w")
-entry_target_rating.place(x=550, y=10, anchor="w")
+entry_target_rating.place(x=540, y=10, anchor="w")
 
 label_prices.place(x=10, y=50, anchor="w")
 
@@ -141,5 +144,10 @@ set_prices_button.place(x=180, y=260)
 
 result_label.place(x=10, y=350, anchor="w")
 
+open_webpage_button = tk.Button(root, text="Futbin lowest prices", command=open_webpage)
+open_webpage_button.place(x=350, y=260)
+
+name_label = tk.Label(root, text="Coded by Mulie")
+name_label.place(x=500, y=400, anchor="w")
 # Run the Tkinter event loop
 root.mainloop()
