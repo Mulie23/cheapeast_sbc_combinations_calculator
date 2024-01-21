@@ -24,14 +24,35 @@ def generate_team_combinations(players, target_rating):
     # Filter combinations that are within the tolerance of the target team rating
     valid_combinations = []
     for combo in combinations:
-        team_rating = (sum(players) + sum(combo)) / 11
-        sub = 0
+        # if combo == (83.0,83.0,83.0,86.0,86.0,86.0,86.0,86.0):
+        #     print("yes")
+        team_sum = sum(players) + sum(combo)
+        average_rating = team_sum / 11
+        # print(team_sum)
+        # print(average_rating)
+        ext_sum = 0.0
         for i in combo:
-            if i > team_rating:
-                sub += (i - round(team_rating))
-        if team_rating + sub/11 - target_rating > -0.042:
+            # print(i)
+            if i > average_rating:
+                ext_sum += (i - average_rating)
+                # print(ext_sum)
+        for j in players:
+            # print(j)
+            if j > average_rating:
+                ext_sum += (j - average_rating)
+                # print(ext_sum)
+        final_sum = team_sum + ext_sum
+        # print(final_sum)
+        final_rating = final_sum/11
+        # print(final_rating)
+        # print(final_rating - target_rating)
+        if final_rating - target_rating > -0.042:
             valid_combinations.append(list(combo))
-
+    # print(valid_combinations[0])
+    # if [83.0,84.0,84.0,85.0,85.0,85.0,85.0,85.0] in valid_combinations:
+    #     print("yes")
+    # else:
+    #     print("no")
     return valid_combinations
 
 def calculate_combination_price(combination, prices):
