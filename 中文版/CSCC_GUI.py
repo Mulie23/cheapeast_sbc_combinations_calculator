@@ -28,10 +28,10 @@ def generate_team_combinations(players, target_rating):
         sub = 0
         for i in combo:
             if i > team_rating:
-                sub += (i - team_rating)
+                sub += (i - round(team_rating))
         if team_rating + sub/11 - target_rating > -0.042:
             valid_combinations.append(list(combo))
-
+    # print(valid_combinations[0])
     return valid_combinations
 
 def calculate_combination_price(combination, prices):
@@ -72,9 +72,6 @@ def on_calculate_button_click():
     # Convert input string to list of player ratings
     players_list = input_players.split(",")
 
-    # Set a tolerance level for the team rating
-    tolerance_level = 0.1  # You can adjust this value based on your preferences
-
     # Update player prices based on user input
     update_player_prices()
 
@@ -88,7 +85,8 @@ def on_calculate_button_click():
     result_label.config(text="最便宜的七种方案：")
     for combination, total_price in top_combinations:
         result_label.config(text=result_label.cget("text") + f"\n方案：{combination}，总价：{total_price}")
-
+        # print(combination)
+        # print(total_price)
 # Tkinter GUI setup
 root = tk.Tk()
 root.title("实时最便宜SBC方案计算器（牧列自制）")
@@ -115,11 +113,11 @@ for rating in range(79, 93):
     entry_price.place(x=80 + (rating - 79) % 3 * 200, y=80 + (rating - 79) // 3 * 40, anchor="w")
 
 # Default player prices (replace these with your actual prices)
-default_prices = {79: 400, 80: 450, 81: 700, 82: 950, 83: 1300, 84: 2000, 85: 4500, 86: 8100, 87: 14250, 88: 20000, 89: 34500, 90: 55000, 91: 75000, 92: 107000}
+default_prices = {79: 400, 80: 450, 81: 700, 82: 750, 83: 900, 84: 1700, 85: 4000, 86: 7800, 87: 14250, 88: 21500, 89: 36500, 90: 55000, 91: 73000, 92: 109000}
 
 # Set default values for entry fields
-entry_players.insert(0, "80,82,84,86,88,90,92")  # 示例默认球员评分
-entry_target_rating.insert(0, "85")  # 示例默认目标球队评分
+entry_players.insert(0, "88,83")  # 示例默认球员评分
+entry_target_rating.insert(0, "86")  # 示例默认目标球队评分
 for rating in range(79, 93):
     price_entries[rating - 79].insert(0, default_prices.get(rating, ""))  # 默认价格
 

@@ -28,7 +28,7 @@ def generate_team_combinations(players, target_rating):
         sub = 0
         for i in combo:
             if i > team_rating:
-                sub += (i - team_rating)
+                sub += (i - round(team_rating))
         if team_rating + sub/11 - target_rating > -0.042:
             valid_combinations.append(list(combo))
 
@@ -115,7 +115,7 @@ for rating in range(79, 93):
     entry_price.place(x=80 + (rating - 79) % 3 * 200, y=80 + (rating - 79) // 3 * 40, anchor="w")
 
 # Default player prices (replace these with your actual prices)
-default_prices = {79: 400, 80: 450, 81: 700, 82: 950, 83: 1300, 84: 2000, 85: 4500, 86: 8100, 87: 14250, 88: 20000, 89: 34500, 90: 55000, 91: 75000, 92: 107000}
+default_prices = {79: 400, 80: 450, 81: 650, 82: 50, 83: 900, 84: 1500, 85: 4000, 86: 7500, 87: 13250, 88: 21000, 89: 34250, 90: 55000, 91: 75000, 92: 110000}
 
 # Set default values for entry fields
 entry_players.insert(0, "80,82,84,86,88,90,92")  # Example default players' ratings
