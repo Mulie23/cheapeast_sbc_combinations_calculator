@@ -110,7 +110,7 @@ def on_calculate_button_click():
         # print(total_price)
 # Tkinter GUI setup
 root = tk.Tk()
-root.title("实时最便宜SBC方案计算器（牧列自制）")
+root.title("实时最便宜SBC方案计算器（牧列自制）v2")
 root.geometry("620x450")
 
 # Input labels and entry widgets
